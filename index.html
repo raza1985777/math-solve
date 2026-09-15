@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free AI Math & Smart Calculator</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; display: flex; justify-content: center; padding: 20px; }
+        .container { background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 500px; width: 100%; }
+        h1 { font-size: 22px; color: #1a73e8; text-align: center; margin-bottom: 15px; }
+        p { font-size: 14px; color: #666; text-align: center; margin-bottom: 20px; }
+        textarea { width: 100%; height: 100px; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; resize: none; margin-bottom: 15px; }
+        button { width: 100%; padding: 12px; background-color: #1a73e8; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        button:hover { background-color: #1557b0; }
+        .result-box { margin-top: 20px; padding: 15px; background: #e8f0fe; border-left: 4px solid #1a73e8; border-radius: 4px; display: none; }
+        .result-box h3 { font-size: 16px; color: #1a73e8; margin-bottom: 5px; }
+        .result-box p { text-align: left; color: #202124; font-size: 18px; font-weight: bold; }
+        .ad-space { margin-top: 25px; padding: 15px; background: #eee; border: 1px dashed #aaa; text-align: center; color: #777; font-size: 12px; border-radius: 6px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Smart Math & Expression Solver</h1>
+    <p>Enter any mathematical expression or equation below to solve instantly:</p>
+    
+    <textarea id="mathInput" placeholder="e.g. 25 * 4 + 100 or (50 / 2) ^ 2"></textarea>
+    <button onclick="solveMath()">Solve Instantly</button>
+
+    <div class="result-box" id="resultBox">
+        <h3>Solution:</h3>
+        <p id="resultText"></p>
+    </div>
+
+    <!-- AdSense Ad Space Placeholder -->
+    <div class="ad-space">
+        Google AdSense Ads Will Display Here
+    </div>
+</div>
+
+<script>
+    function solveMath() {
+        const input = document.getElementById('mathInput').value.trim();
+        const resultBox = document.getElementById('resultBox');
+        const resultText = document.getElementById('resultText');
+
+        if (!input) {
+            alert('Please enter an equation or expression!');
+            return;
+        }
+
+        try {
+            // Safe evaluation replacing power syntax ^ with **
+            let formattedInput = input.replace(/\^/g, '**');
+            let solution = Function('"use strict";return (' + formattedInput + ')')();
+            
+            resultText.innerText = solution;
+            resultBox.style.display = 'block';
+        } catch (error) {
+            resultText.innerText = 'Invalid Equation. Please check syntax.';
+            resultBox.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>

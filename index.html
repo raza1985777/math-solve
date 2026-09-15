@@ -1,68 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free AI Math & Smart Calculator</title>
+    <title>Smart AI Math Solver & Calculator</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #f4f7f6; color: #333; display: flex; justify-content: center; padding: 20px; }
-        .container { background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 500px; width: 100%; }
-        h1 { font-size: 22px; color: #1a73e8; text-align: center; margin-bottom: 15px; }
-        p { font-size: 14px; color: #666; text-align: center; margin-bottom: 20px; }
-        textarea { width: 100%; height: 100px; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; resize: none; margin-bottom: 15px; }
-        button { width: 100%; padding: 12px; background-color: #1a73e8; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; }
-        button:hover { background-color: #1557b0; }
-        .result-box { margin-top: 20px; padding: 15px; background: #e8f0fe; border-left: 4px solid #1a73e8; border-radius: 4px; display: none; }
-        .result-box h3 { font-size: 16px; color: #1a73e8; margin-bottom: 5px; }
-        .result-box p { text-align: left; color: #202124; font-size: 18px; font-weight: bold; }
-        .ad-space { margin-top: 25px; padding: 15px; background: #eee; border: 1px dashed #aaa; text-align: center; color: #777; font-size: 12px; border-radius: 6px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body { background-color: #f4f6f9; color: #333; line-height: 1.6; padding: 20px; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+        .container { max-width: 650px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; }
+        h1 { font-size: 24px; color: #1a73e8; margin-bottom: 10px; text-align: center; }
+        p.subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 20px; }
+        .input-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px; }
+        button.btn-solve { width: 100%; background: #1a73e8; color: white; border: none; padding: 12px; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button.btn-solve:hover { background: #1557b0; }
+        .result-box { margin-top: 20px; padding: 15px; background: #e8f0fe; border-left: 5px solid #1a73e8; border-radius: 4px; display: none; }
+        footer { margin-top: 40px; text-align: center; font-size: 14px; color: #666; border-top: 1px solid #ddd; padding-top: 15px; }
+        footer a { color: #1a73e8; text-decoration: none; margin: 0 10px; cursor: pointer; }
+        footer a:hover { text-decoration: underline; }
+        /* Modal Popup Styling */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background: white; padding: 20px; border-radius: 8px; max-width: 500px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
+        .close-btn { position: absolute; top: 10px; right: 15px; font-size: 20px; cursor: pointer; font-weight: bold; color: #888; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Smart Math & Expression Solver</h1>
-    <p>Enter any mathematical expression or equation below to solve instantly:</p>
-    
-    <textarea id="mathInput" placeholder="e.g. 25 * 4 + 100 or (50 / 2) ^ 2"></textarea>
-    <button onclick="solveMath()">Solve Instantly</button>
-
-    <div class="result-box" id="resultBox">
-        <h3>Solution:</h3>
-        <p id="resultText"></p>
+    <div class="container">
+        <h1>Smart AI Math Solver</h1>
+        <p class="subtitle">Enter any mathematical expression to solve instantly.</p>
+        
+        <div class="input-group">
+            <label for="math-input">Math Expression:</label>
+            <input type="text" id="math-input" placeholder="e.g. 2*x + 5 = 15 or 12 * 8">
+        </div>
+        
+        <button class="btn-solve" onclick="solveMath()">Solve Instantly</button>
+        
+        <div id="result" class="result-box"></div>
     </div>
 
-    <!-- AdSense Ad Space Placeholder -->
-    <div class="ad-space">
-        Google AdSense Ads Will Display Here
+    <footer>
+        <p>&copy; 2026 AI Math Solver. All rights reserved.</p>
+        <p>
+            <a onclick="openModal('about')">About Us</a> | 
+            <a onclick="openModal('privacy')">Privacy Policy</a> | 
+            <a onclick="openModal('terms')">Terms of Service</a>
+        </p>
+    </footer>
+
+    <!-- Modals for Legal Pages -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
     </div>
-</div>
 
-<script>
-    function solveMath() {
-        const input = document.getElementById('mathInput').value.trim();
-        const resultBox = document.getElementById('resultBox');
-        const resultText = document.getElementById('resultText');
-
-        if (!input) {
-            alert('Please enter an equation or expression!');
-            return;
-        }
-
-        try {
-            // Safe evaluation replacing power syntax ^ with **
-            let formattedInput = input.replace(/\^/g, '**');
-            let solution = Function('"use strict";return (' + formattedInput + ')')();
+    <script>
+        function solveMath() {
+            const input = document.getElementById('math-input').value.trim();
+            const resultDiv = document.getElementById('result');
             
-            resultText.innerText = solution;
-            resultBox.style.display = 'block';
-        } catch (error) {
-            resultText.innerText = 'Invalid Equation. Please check syntax.';
-            resultBox.style.display = 'block';
-        }
-    }
-</script>
+            if(!input) {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = '<strong>Error:</strong> Please enter a valid expression.';
+                return;
+            }
 
+            try {
+                // Simple Evaluator for Basic Expressions
+                let sanitizedInput = input.replace(/=/g, '==');
+                let answer = eval(sanitizedInput);
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = '<strong>Solution:</strong> ' + answer;
+            } catch (e) {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = '<strong>Result:</strong> Processing expression... (For complex equations, ensure syntax like 2*x is formatted correctly)';
+            }
+        }
+
+        const pages = {
+            about: `<h2>About Us</h2><p style="margin-top:10px;">Welcome to Smart AI Math Solver. Our tool is designed to provide quick and accurate solutions to simple and complex mathematical expressions for students and professionals worldwide.</p>`,
+            privacy: `<h2>Privacy Policy</h2><p style="margin-top:10px;">We respect your privacy. This website does not collect or store personal data. Standard log information and third-party advertising cookies (such as Google AdSense) may be used to deliver personalized ads.</p>`,
+            terms: `<h2>Terms of Service</h2><p style="margin-top:10px;">By using this website, you agree to use the calculations for informational purposes. While we strive for accuracy, we are not responsible for errors in mathematical outputs.</p>`
+        };
+
+        function openModal(page) {
+            document.getElementById('modal-body').innerHTML = pages[page];
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

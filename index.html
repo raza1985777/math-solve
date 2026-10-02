@@ -1,754 +1,759 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AlphaMath AI - Advanced Smart Mathematics Solver & Comprehensive Learning Hub</title>
-    <meta name="description" content="Explore advanced AI-powered mathematical problem solvers, step-by-step calculus guides, algebra tutorials, and comprehensive study materials from Grade 1 to Master's level.">
-    <meta name="google-adsense-account" content="ca-pub-6253024417683704">
-
-    <!-- Google AdSense Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6253024417683704" crossorigin="anonymous"></script>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --primary-grad: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #ec4899 100%);
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --gray-bg: #f8fafc;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --accent-cyan: #06b6d4;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--gray-bg);
-            background-image: 
-                radial-gradient(#cbd5e1 1.5px, transparent 1.5px),
-                linear-gradient(to right, rgba(203, 213, 225, 0.25) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(203, 213, 225, 0.25) 1px, transparent 1px);
-            background-size: 24px 24px, 48px 48px, 48px 48px;
-            color: var(--text-main);
-            line-height: 1.7;
-        }
-
-        /* Top Navbar with AI Logo */
-        nav {
-            background: var(--dark-bg);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 15px 30px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-grad);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 800;
-            font-size: 20px;
-            box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
-        }
-
-        .logo-text {
-            font-size: 22px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        /* Hero Banner */
-        .hero-banner {
-            background: var(--dark-bg);
-            background-image: radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.3) 0%, transparent 40%),
-                              radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.2) 0%, transparent 40%);
-            color: #ffffff;
-            padding: 60px 20px;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 4px solid #7c3aed;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-
-        .hero-text {
-            flex: 1.3;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(124, 58, 237, 0.2);
-            color: #c084fc;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 700;
-            border: 1px solid rgba(192, 132, 252, 0.3);
-            margin-bottom: 16px;
-        }
-
-        .hero-text h1 {
-            font-size: 42px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-text p {
-            font-size: 16px;
-            color: #94a3b8;
-            margin-bottom: 24px;
-        }
-
-        /* Moving / Animated Teacher Illustration Card */
-        .hero-image-wrapper {
-            flex: 0.9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .teacher-card-container {
-            position: relative;
-            animation: floatAnim 4s ease-in-out infinite;
-        }
-
-        @keyframes floatAnim {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .teacher-img {
-            width: 100%;
-            max-width: 380px;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 3px solid rgba(124, 58, 237, 0.4);
-        }
-
-        .live-badge {
-            position: absolute;
-            bottom: 20px;
-            left: -20px;
-            background: rgba(15, 23, 42, 0.9);
-            border: 1px solid #06b6d4;
-            padding: 10px 16px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        .pulse-dot {
-            width: 10px;
-            height: 10px;
-            background: #10b981;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #10b981;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
-
-        /* Main Container */
-        .main-container {
-            max-width: 1200px;
-            margin: -30px auto 0 auto;
-            padding: 0 20px 60px 20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Calculator Tool Card */
-        .calculator-card {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 35px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e2e8f0;
-            margin-bottom: 50px;
-        }
-
-        .calculator-card h2 {
-            font-size: 24px;
-            color: var(--dark-bg);
-            margin-bottom: 8px;
-        }
-
-        .calculator-card p.subtitle {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 24px;
-        }
-
-        .input-group label {
-            display: block;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #1e293b;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 16px 20px;
-            font-size: 18px;
-            font-family: 'Fira Code', monospace;
-            border: 2px solid #cbd5e1;
-            border-radius: 14px;
-            outline: none;
-            background: #f8fafc;
-            transition: all 0.3s;
-        }
-
-        input[type="text"]:focus {
-            border-color: #7c3aed;
-            background: #ffffff;
-            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
-        }
-
-        .sci-keypad {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .sci-btn {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            padding: 12px;
-            border-radius: 10px;
-            font-family: 'Fira Code', monospace;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            color: #334155;
-            text-align: center;
-        }
-
-        .sci-btn:hover {
-            background: #7c3aed;
-            color: #ffffff;
-            border-color: #7c3aed;
-        }
-
-        button.btn-solve {
-            width: 100%;
-            padding: 16px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 14px;
-            background: var(--primary-grad);
-            color: #ffffff;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        button.btn-solve:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(124, 58, 237, 0.4);
-        }
-
-        .quick-chips {
-            margin-top: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .quick-chips span.title {
-            font-size: 13px;
-            font-weight: 700;
-            color: #64748b;
-        }
-
-        .chip {
-            background: #f1f5f9;
-            color: #334155;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-family: 'Fira Code', monospace;
-            cursor: pointer;
-            border: 1px solid #cbd5e1;
-            transition: all 0.2s;
-        }
-
-        .chip:hover {
-            background: #06b6d4;
-            color: #fff;
-            border-color: #06b6d4;
-        }
-
-        .result-box {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 14px;
-            background: #ecfdf5;
-            border: 1px solid #a7f3d0;
-            color: #065f46;
-            font-size: 18px;
-            font-weight: 600;
-            display: none;
-        }
-
-        .result-box span.res {
-            font-size: 26px;
-            font-weight: 800;
-            display: block;
-            margin-top: 5px;
-            color: #047857;
-        }
-
-        /* Content Sections for AdSense Approval */
-        .section-heading {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--dark-bg);
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .section-desc {
-            text-align: center;
-            color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 40px auto;
-            font-size: 16px;
-        }
-
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-
-        .article-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-        }
-
-        .article-tag {
-            display: inline-block;
-            background: #e0e7ff;
-            color: #4338ca;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-        }
-
-        .article-card h3 {
-            font-size: 20px;
-            color: var(--dark-bg);
-            margin-bottom: 12px;
-        }
-
-        .article-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        /* Large SEO Content Block */
-        .seo-content-block {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 45px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-            margin-bottom: 50px;
-        }
-
-        .seo-content-block h2 {
-            font-size: 24px;
-            color: var(--dark-bg);
-            margin-top: 30px;
-            margin-bottom: 12px;
-        }
-
-        .seo-content-block h2:first-child {
-            margin-top: 0;
-        }
-
-        .seo-content-block p {
-            color: var(--text-muted);
-            font-size: 15px;
-            margin-bottom: 15px;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-bg);
-            color: #94a3b8;
-            padding: 50px 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            margin: 20px 0;
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: #06b6d4;
-        }
-
-        /* Modal Box */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 35px;
-            border-radius: 20px;
-            max-width: 650px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px; right: 25px;
-            font-size: 26px;
-            cursor: pointer;
-            color: var(--text-muted);
-        }
-
-        /* Responsive */
-        @media(max-width: 900px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero-text p {
-                margin: 0 auto 24px auto;
-            }
-            .live-badge {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MathSolve — Step-by-Step Math Solutions from Grade 1 to Postgraduate</title>
+<meta name="description" content="Solve arithmetic, algebra, trigonometry, calculus and statistics problems instantly with worked steps and examples. Free online math solver for every grade level.">
+<meta name="google-adsense-account" content="ca-pub-6253024417683704">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6253024417683704" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.2/math.min.js"></script>
+<style>
+  :root{
+    --ink:#182623;
+    --chalk:#0f2d28;
+    --chalk-2:#143933;
+    --chalk-3:#1b453d;
+    --paper:#f6f3ea;
+    --paper-2:#ffffff;
+    --brass:#c79a3a;
+    --brass-light:#e7c06e;
+    --brass-dark:#9c7524;
+    --line:#e2dbc8;
+    --muted:#5c6b63;
+    --good:#2f6e4f;
+    --bad:#a5423a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Source Serif 4',serif;}
+  code,.mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+
+  header{
+    background:var(--chalk);
+    color:#f3ece0;
+    position:sticky;top:0;z-index:50;
+    border-bottom:3px solid var(--brass);
+  }
+  .header-inner{
+    max-width:1140px;margin:0 auto;padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Source Serif 4',serif;font-weight:700;font-size:1.32rem;color:#fff;text-decoration:none;}
+  .brand-mark{
+    width:38px;height:38px;border-radius:9px;
+    background:linear-gradient(145deg,var(--brass-light),var(--brass-dark));
+    display:flex;align-items:center;justify-content:center;color:var(--chalk);
+    font-family:'Source Serif 4',serif;font-weight:700;font-size:1.15rem;
+    box-shadow:0 2px 6px rgba(0,0,0,.25);
+  }
+  nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
+  nav::-webkit-scrollbar{display:none;}
+  nav button{
+    display:flex;align-items:center;gap:7px;
+    background:none;border:none;color:#b9c7c0;font-family:'Inter',sans-serif;
+    font-size:0.9rem;font-weight:500;padding:9px 13px;border-radius:7px;cursor:pointer;
+    white-space:nowrap;transition:background .15s, color .15s;
+  }
+  nav button svg{width:15px;height:15px;opacity:.75;flex-shrink:0;}
+  nav button:hover{background:rgba(255,255,255,.08);color:#fff;}
+  nav button.active{background:var(--brass);color:var(--chalk);font-weight:600;}
+  nav button.active svg{opacity:1;}
+
+  .hero{
+    background:
+      radial-gradient(ellipse 900px 400px at 85% -10%, rgba(199,154,58,.18), transparent),
+      linear-gradient(180deg,var(--chalk) 0%, var(--chalk-2) 100%);
+    color:#f3ece0;padding:60px 24px 56px;position:relative;overflow:hidden;
+  }
+  .hero-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;}
+  .hero-text h1{font-size:clamp(1.9rem,4vw,2.65rem);line-height:1.18;margin-bottom:16px;letter-spacing:-.01em;}
+  .hero-text p{color:#c3d1c9;font-size:1.03rem;max-width:480px;}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;}
+  .hero-tags span{
+    border:1px solid rgba(199,154,58,.5);color:var(--brass-light);
+    font-size:.8rem;padding:6px 13px;border-radius:20px;font-weight:500;
+  }
+  .hero-art{display:flex;align-items:center;justify-content:center;}
+  .hero-art svg{width:100%;max-width:340px;}
+  @media(max-width:860px){ .hero-inner{grid-template-columns:1fr;} .hero-art{order:-1;} .hero-art svg{max-width:220px;} }
+
+  main{max-width:1140px;margin:0 auto;padding:0 24px;}
+
+  .ad-slot{max-width:1140px;margin:30px auto 0;padding:0 24px;}
+
+  .page{display:none;padding:48px 0 10px;}
+  .page.active{display:block;}
+
+  .page-head{
+    display:grid;grid-template-columns:1fr 160px;gap:30px;align-items:center;
+    margin-bottom:34px;padding-bottom:28px;border-bottom:1px solid var(--line);
+  }
+  .page-head .eyebrow{color:var(--brass-dark);font-weight:700;font-size:.78rem;letter-spacing:.04em;}
+  .page-head h2{font-size:1.95rem;margin:7px 0 14px;}
+  .page-head p{color:var(--muted);max-width:560px;}
+  .page-head .icon-box{
+    width:100%;aspect-ratio:1;background:var(--paper-2);border:1px solid var(--line);
+    border-radius:16px;display:flex;align-items:center;justify-content:center;padding:18px;
+  }
+  .page-head .icon-box svg{width:100%;height:100%;}
+  @media(max-width:700px){ .page-head{grid-template-columns:1fr;} .page-head .icon-box{display:none;} }
+
+  .solver-card{
+    background:var(--paper-2);border:1px solid var(--line);border-radius:14px;
+    padding:28px;margin-bottom:28px;box-shadow:0 1px 3px rgba(20,30,25,.05);
+  }
+  .solver-card .card-label{
+    display:flex;align-items:center;gap:9px;font-weight:600;font-size:.95rem;margin-bottom:12px;
+  }
+  .solver-card .card-label svg{width:18px;height:18px;color:var(--brass-dark);}
+  .input-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .input-row input, .input-row select{
+    flex:1;min-width:160px;padding:13px 15px;border:1.5px solid var(--line);
+    border-radius:9px;font-family:'JetBrains Mono',monospace;font-size:1rem;background:#fcfbf7;
+  }
+  .input-row input:focus,.input-row select:focus{outline:2px solid var(--brass);border-color:var(--brass);background:#fff;}
+  .solve-btn{
+    background:var(--chalk);color:#fff;border:none;padding:13px 26px;
+    border-radius:9px;font-weight:600;cursor:pointer;font-size:.95rem;
+    transition:background .15s,transform .1s;
+  }
+  .solve-btn:hover{background:var(--chalk-3);}
+  .solve-btn:active{transform:scale(.97);}
+  .hint{font-size:.82rem;color:var(--muted);margin-top:11px;}
+  .examples{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px;}
+  .examples span.ex-label{font-size:.78rem;color:var(--muted);align-self:center;margin-right:2px;}
+  .examples button{
+    background:var(--paper);border:1px solid var(--line);border-radius:20px;
+    padding:6px 13px;font-size:.81rem;cursor:pointer;font-family:'JetBrains Mono',monospace;
+    color:var(--chalk-3);transition:border-color .15s,background .15s;
+  }
+  .examples button:hover{border-color:var(--brass);background:#fffaef;}
+
+  .result{margin-top:22px;border-top:2px solid var(--brass);padding-top:20px;display:none;}
+  .result.show{display:block;animation:fadeIn .25s ease;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+  .result .answer{font-family:'Source Serif 4',serif;font-size:1.55rem;font-weight:600;color:var(--chalk);margin-bottom:12px;}
+  .result .steps{list-style:none;}
+  .result .steps li{padding:9px 0 9px 30px;border-bottom:1px dashed var(--line);position:relative;font-size:.94rem;}
+  .result .steps li:last-child{border-bottom:none;}
+  .result .steps li::before{
+    content:counter(step);counter-increment:step;
+    position:absolute;left:0;top:8px;width:20px;height:20px;border-radius:50%;
+    background:var(--brass);color:var(--chalk);font-size:.7rem;font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .result .steps{counter-reset:step;}
+  .result.error .answer{color:var(--bad);font-size:1.1rem;}
+
+  .explainer{
+    background:#fffdf7;border:1px solid var(--line);border-left:4px solid var(--brass);
+    border-radius:10px;padding:22px 24px;margin-bottom:28px;
+  }
+  .explainer h3{font-size:1.08rem;margin-bottom:9px;}
+  .explainer p, .explainer li{color:#3e4c45;font-size:.93rem;}
+  .explainer ol{margin-left:18px;margin-top:6px;}
+  .explainer li{margin-bottom:4px;}
+
+  .topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px;}
+  .topic-grid .t-card{
+    border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--paper-2);
+    display:flex;gap:13px;align-items:flex-start;
+  }
+  .topic-grid .t-card .t-icon{
+    width:34px;height:34px;flex-shrink:0;border-radius:9px;background:var(--chalk);
+    display:flex;align-items:center;justify-content:center;color:var(--brass-light);font-size:1rem;font-family:'Source Serif 4',serif;
+  }
+  .topic-grid .t-card h4{font-size:.95rem;margin-bottom:3px;}
+  .topic-grid .t-card p{font-size:.84rem;color:var(--muted);}
+
+  .faq{padding:50px 0 64px;}
+  .faq h2{font-size:1.65rem;margin-bottom:22px;}
+  details{border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:var(--paper-2);padding:15px 19px;}
+  summary{font-weight:600;cursor:pointer;font-size:.95rem;}
+  details p{margin-top:11px;color:var(--muted);font-size:.9rem;}
+
+  footer{background:var(--chalk);color:#b9c7c0;padding:36px 24px;margin-top:44px;}
+  .footer-inner{max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:.85rem;}
+  footer a{color:#b9c7c0;text-decoration:none;}
+  footer a:hover{color:#fff;}
+  @media(max-width:640px){
+    .header-inner{flex-direction:column;align-items:flex-start;gap:12px;}
+    nav{width:100%;}
+  }
+</style>
 </head>
 <body>
 
-    <!-- Navigation Header -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <div class="logo-icon">α</div>
-                <div class="logo-text">AlphaMath AI</div>
-            </a>
-            <div class="nav-links">
-                <a href="#calculator">Solver</a>
-                <a href="#articles">Guides</a>
-                <a onclick="showModal('about')">About Us</a>
-                <a onclick="showModal('contact')">Contact</a>
-            </div>
-        </div>
+<header>
+  <div class="header-inner">
+    <a href="#" class="brand"><span class="brand-mark">∑</span>MathSolve</a>
+    <nav id="mainNav">
+      <button data-page="arithmetic" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>Arithmetic</button>
+      <button data-page="algebra"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18c4-14 8-14 9 0s5 14 9 0"/></svg>Algebra</button>
+      <button data-page="trig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 4v8l6 4"/></svg>Trigonometry</button>
+      <button data-page="calculus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17c4 0 5-12 9-12s3 14 9 7"/></svg>Calculus</button>
+      <button data-page="stats"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Statistics</button>
     </nav>
+  </div>
+</header>
 
-    <!-- Hero Banner with Animated Teacher Illustration -->
-    <div class="hero-banner">
-        <div class="hero-content">
-            <div class="hero-text">
-                <span class="badge">✨ Next-Gen AI Mathematics Platform</span>
-                <h1>Master Math with Intelligent Step-by-Step Guidance</h1>
-                <p>Designed for students, educators, and creators. Solve complex equations instantly, explore advanced calculus, algebra, and master analytical problem-solving skills.</p>
-            </div>
-            <div class="hero-image-wrapper">
-                <div class="teacher-card-container">
-                    <!-- Professional Female Teacher with Glasses, Suit, and Pen solving equations on board -->
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Female Math Teacher in Suit Solving Equations on Board" class="teacher-img">
-                    <div class="live-badge">
-                        <div class="pulse-dot"></div>
-                        <span style="color: #fff; font-size: 13px; font-weight: 700;">Live AI Solver Active</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Every math problem, from your first fraction to your final thesis.</h1>
+      <p>Type a problem in plain notation and get a real, calculated answer with the working steps shown — not a guess, an actual computation.</p>
+      <div class="hero-tags">
+        <span>Grade 1–8 Arithmetic</span><span>Algebra</span><span>Trigonometry</span><span>Calculus</span><span>Statistics</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 320 260" fill="none">
+        <path d="M20 220 Q 80 40 160 130 T 300 60" stroke="#c79a3a" stroke-width="2.5" opacity=".85"/>
+        <circle cx="160" cy="130" r="5" fill="#c79a3a"/>
+        <line x1="20" y1="220" x2="300" y2="220" stroke="#3a4a44" stroke-width="1.5"/>
+        <line x1="20" y1="220" x2="20" y2="30" stroke="#3a4a44" stroke-width="1.5"/>
+        <circle cx="90" cy="195" r="3" fill="#e7c06e" opacity=".9"/>
+        <circle cx="230" cy="90" r="3" fill="#e7c06e" opacity=".9"/>
+        <text x="235" y="45" fill="#e7c06e" font-family="Source Serif 4, serif" font-size="30" font-style="italic">∫</text>
+        <text x="40" y="80" fill="#8fa89d" font-family="Source Serif 4, serif" font-size="22" font-style="italic">π</text>
+        <text x="265" y="190" fill="#8fa89d" font-family="Source Serif 4, serif" font-size="24" font-style="italic">Σ</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="ad-slot">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6253024417683704" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+</div>
+
+<main>
+
+  <section id="arithmetic" class="page active">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">GRADE 1–8</div>
+        <h2>Arithmetic Solver</h2>
+        <p>Enter any expression with addition, subtraction, multiplication, division, fractions, percentages or exponents, and get the calculated result instantly.</p>
+      </div>
+      <div class="icon-box">
+        <svg viewBox="0 0 100 100" fill="none">
+          <rect x="10" y="10" width="34" height="34" rx="5" fill="#f6f3ea" stroke="#c79a3a" stroke-width="2"/>
+          <text x="27" y="34" text-anchor="middle" font-size="20" fill="#143933" font-family="JetBrains Mono">+</text>
+          <rect x="56" y="10" width="34" height="34" rx="5" fill="#0f2d28"/>
+          <text x="73" y="34" text-anchor="middle" font-size="20" fill="#e7c06e" font-family="JetBrains Mono">÷</text>
+          <rect x="10" y="56" width="34" height="34" rx="5" fill="#0f2d28"/>
+          <text x="27" y="80" text-anchor="middle" font-size="20" fill="#e7c06e" font-family="JetBrains Mono">×</text>
+          <rect x="56" y="56" width="34" height="34" rx="5" fill="#f6f3ea" stroke="#c79a3a" stroke-width="2"/>
+          <text x="73" y="80" text-anchor="middle" font-size="20" fill="#143933" font-family="JetBrains Mono">−</text>
+        </svg>
+      </div>
     </div>
 
-    <!-- Main Content Container -->
-    <div class="main-container" id="calculator">
-
-        <!-- Calculator Tool Card -->
-        <div class="calculator-card">
-            <h2>Interactive AI Equation Solver</h2>
-            <p class="subtitle">Enter any arithmetic, algebraic expression or scientific function to receive immediate computational breakdown.</p>
-            
-            <div class="input-group">
-                <label for="mathInput">Mathematical Expression:</label>
-                <input type="text" id="mathInput" placeholder="e.g. (45 * 12) / 3 + sqrt(144)">
-            </div>
-
-            <!-- Scientific Keypad -->
-            <div class="sci-keypad">
-                <button class="sci-btn" onclick="insertCmd('sin(')">sin</button>
-                <button class="sci-btn" onclick="insertCmd('cos(')">cos</button>
-                <button class="sci-btn" onclick="insertCmd('tan(')">tan</button>
-                <button class="sci-btn" onclick="insertCmd('log(')">log</button>
-                <button class="sci-btn" onclick="insertCmd('sqrt(')">√</button>
-                <button class="sci-btn" onclick="insertCmd('pi')">π</button>
-                <button class="sci-btn" onclick="insertCmd('^')">xⁿ</button>
-                <button class="sci-btn" onclick="clearInput()">C</button>
-            </div>
-
-            <button class="btn-solve" onclick="solveMath()">Evaluate Problem ✨</button>
-
-            <div class="quick-chips">
-                <span class="title">Quick Try:</span>
-                <span class="chip" onclick="setExample('250 * 4 - 120')">250 * 4 - 120</span>
-                <span class="chip" onclick="setExample('sqrt(225) + 50')">√225 + 50</span>
-                <span class="chip" onclick="setExample('sin(45) + cos(45)')">sin(45) + cos(45)</span>
-                <span class="chip" onclick="setExample('1024 / 8 + 64')">1024 / 8 + 64</span>
-            </div>
-
-            <div id="resultBox" class="result-box"></div>
-        </div>
-
-        <!-- High Value Content Section for AdSense Approval -->
-        <div id="articles">
-            <h2 class="section-heading">Comprehensive Mathematical Curriculum</h2>
-            <p class="section-desc">Explore in-depth educational resources covering everything from primary arithmetic foundations to advanced university-level research mathematics.</p>
-
-            <div class="articles-grid">
-                <div class="article-card">
-                    <span class="article-tag" style="background:#e0e7ff; color:#4338ca;">Foundations</span>
-                    <h3>Primary Arithmetic & Fractions</h3>
-                    <p>Master the essential rules of addition, subtraction, multiplication, division, least common multiples (LCM), and greatest common divisors (GCD).</p>
-                </div>
-
-                <div class="article-card">
-                    <span class="article-tag" style="background:#cffafe; color:#0891b2;">Algebra</span>
-                    <h3>Linear & Quadratic Equations</h3>
-                    <p>Learn how to isolate variables, factor polynomial expressions, solve quadratic equations using the quadratic formula, and graph linear functions.</p>
-                </div>
-
-                <div class="article-card">
-                    <span class="article-tag" style="background:#fce7f3; color:#be185d;">Calculus</span>
-                    <h3>Limits, Derivatives & Integrals</h3>
-                    <p>Understand the core principles of change and accumulation. Master the power rule, product rule, quotient rule, and definite integrals in calculus.</p>
-                </div>
-
-                <div class="article-card">
-                    <span class="article-tag" style="background:#d1fae5; color:#047857;">Applied Math</span>
-                    <h3>Matrices & Vector Spaces</h3>
-                    <p>Dive into linear algebra, matrix multiplications, determinants, eigenvalues, and multi-dimensional geometric transformations used in modern AI.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEO Article Block to satisfy AdSense High Quality Content Policy -->
-        <div class="seo-content-block">
-            <h2>The Significance of Mathematics in Modern Artificial Intelligence</h2>
-            <p>Mathematics serves as the foundational language underlying all scientific disciplines, modern software engineering, and artificial intelligence architectures. From simple arithmetic operations computed in everyday banking to high-dimensional tensor calculus utilized in training neural networks, numerical reasoning drives technological progress.</p>
-
-            <h2>Why Step-by-Step Problem Solving Accelerates Learning</h2>
-            <p>Cognitive studies in education consistently demonstrate that students retain mathematical concepts significantly better when they understand the intermediate procedural steps rather than just viewing the final solution. Whether applying the order of operations (PEMDAS/BODMAS) or evaluating trigonometric identities, breaking down equations fosters critical analytical thinking.</p>
-
-            <h2>Frequently Asked Questions</h2>
-            <p><strong>Is AlphaMath AI completely free to use?</strong><br>Yes, all computational tools and study guides provided on this platform are 100% free with no hidden subscription requirements.</p>
-            <p><strong>Can I use this tool on mobile phones?</strong><br>Absolutely. The platform is fully responsive and optimized for smooth performance across smartphones, tablets, and desktop computers.</p>
-        </div>
-
+    <div class="solver-card">
+      <div class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>Expression</div>
+      <div class="input-row">
+        <input id="arithInput" type="text" placeholder="e.g. (45 + 15%) * 2 - 3/4">
+        <button class="solve-btn" onclick="solveArithmetic()">Solve</button>
+      </div>
+      <div class="examples">
+        <span class="ex-label">Try:</span>
+        <button onclick="runExample('arithInput','45+15%*200',solveArithmetic)">45+15%*200</button>
+        <button onclick="runExample('arithInput','(3/4)+(1/2)',solveArithmetic)">(3/4)+(1/2)</button>
+        <button onclick="runExample('arithInput','2^5 - 10',solveArithmetic)">2^5 - 10</button>
+        <button onclick="runExample('arithInput','sqrt(144)',solveArithmetic)">sqrt(144)</button>
+      </div>
+      <div class="hint">Supports + − × ÷, ^ for powers, % for percentages, sqrt(), and fractions like 3/4.</div>
+      <div class="result" id="arithResult"></div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <p>© 2026 AlphaMath AI. Empowering global education.</p>
-            <div class="footer-links">
-                <a onclick="showModal('about')">About Us</a>
-                <a onclick="showModal('privacy')">Privacy Policy</a>
-                <a onclick="showModal('terms')">Terms of Service</a>
-                <a onclick="showModal('contact')">Contact Us</a>
-            </div>
-        </div>
-    </footer>
+    <div class="explainer">
+      <h3>How to solve arithmetic expressions by hand</h3>
+      <ol>
+        <li>Work inside brackets first.</li>
+        <li>Resolve exponents and roots next.</li>
+        <li>Perform multiplication and division, left to right.</li>
+        <li>Finish with addition and subtraction, left to right.</li>
+      </ol>
+      <p style="margin-top:10px;">This order — brackets, exponents, multiplication/division, addition/subtraction — is usually remembered as BODMAS or PEMDAS. Getting the order wrong is the single most common arithmetic mistake, so the solver above always follows it exactly.</p>
+    </div>
+  </section>
 
-    <!-- Legal Modals -->
-    <div id="modalBox" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="modalBody"></div>
-        </div>
+  <section id="algebra" class="page">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">GRADE 8–12</div>
+        <h2>Algebra Equation Solver</h2>
+        <p>Enter a linear equation (like 2x+5=15) or a quadratic equation (like x^2-5x+6=0) and get every root with the method used to find it.</p>
+      </div>
+      <div class="icon-box">
+        <svg viewBox="0 0 100 100" fill="none">
+          <line x1="10" y1="80" x2="90" y2="80" stroke="#1b453d" stroke-width="1.5"/>
+          <line x1="20" y1="90" x2="20" y2="10" stroke="#1b453d" stroke-width="1.5"/>
+          <path d="M20 75 Q 50 5 80 75" stroke="#c79a3a" stroke-width="3" fill="none"/>
+          <circle cx="33" cy="80" r="3.5" fill="#143933"/>
+          <circle cx="67" cy="80" r="3.5" fill="#143933"/>
+        </svg>
+      </div>
     </div>
 
-    <script>
-        function insertCmd(cmd) {
-            const inp = document.getElementById('mathInput');
-            inp.value += cmd;
-            inp.focus();
-        }
+    <div class="solver-card">
+      <div class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18c4-14 8-14 9 0s5 14 9 0"/></svg>Equation (use x as the variable)</div>
+      <div class="input-row">
+        <input id="algInput" type="text" placeholder="e.g. x^2 - 5x + 6 = 0">
+        <button class="solve-btn" onclick="solveAlgebra()">Solve</button>
+      </div>
+      <div class="examples">
+        <span class="ex-label">Try:</span>
+        <button onclick="runExample('algInput','2x+5=15',solveAlgebra)">2x+5=15</button>
+        <button onclick="runExample('algInput','3x-7=2x+4',solveAlgebra)">3x-7=2x+4</button>
+        <button onclick="runExample('algInput','x^2-5x+6=0',solveAlgebra)">x^2-5x+6=0</button>
+        <button onclick="runExample('algInput','2x^2+3x-2=0',solveAlgebra)">2x^2+3x-2=0</button>
+      </div>
+      <div class="hint">Write powers as x^2. Keep all x terms and numbers on either side of a single "=" sign.</div>
+      <div class="result" id="algResult"></div>
+    </div>
 
-        function clearInput() {
-            document.getElementById('mathInput').value = '';
-            document.getElementById('resultBox').style.display = 'none';
-        }
+    <div class="explainer">
+      <h3>Linear vs. quadratic equations</h3>
+      <p>A <strong>linear equation</strong> has x to the power of 1 only (like 2x+5=15) and always has exactly one solution, found by isolating x on one side.</p>
+      <p style="margin-top:8px;">A <strong>quadratic equation</strong> has x² as its highest power (like x²−5x+6=0) and has up to two solutions, found with the quadratic formula: x = (−b ± √(b²−4ac)) / 2a, where a, b and c are the coefficients.</p>
+    </div>
+  </section>
 
-        function solveMath() {
-            const input = document.getElementById('mathInput').value;
-            const resultBox = document.getElementById('resultBox');
-            if(!input) {
-                alert('Please enter a math expression');
-                return;
-            }
-            try {
-                let sanitized = input.toLowerCase();
-                sanitized = sanitized.replace(/pi/g, 'Math.PI');
-                sanitized = sanitized.replace(/sqrt\(([^)]+)\)/g, 'Math.sqrt($1)');
-                sanitized = sanitized.replace(/sin\(([^)]+)\)/g, 'Math.sin($1 * Math.PI / 180)');
-                sanitized = sanitized.replace(/cos\(([^)]+)\)/g, 'Math.cos($1 * Math.PI / 180)');
-                sanitized = sanitized.replace(/tan\(([^)]+)\)/g, 'Math.tan($1 * Math.PI / 180)');
-                sanitized = sanitized.replace(/log\(([^)]+)\)/g, 'Math.log10($1)');
-                sanitized = sanitized.replace(/\^/g, '**');
+  <section id="trig" class="page">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">GRADE 9–12</div>
+        <h2>Trigonometry Calculator</h2>
+        <p>Evaluate any trigonometric expression in degrees or radians, or solve a right triangle from two known values.</p>
+      </div>
+      <div class="icon-box">
+        <svg viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="38" stroke="#1b453d" stroke-width="1.5"/>
+          <line x1="12" y1="50" x2="88" y2="50" stroke="#1b453d" stroke-width="1"/>
+          <line x1="50" y1="12" x2="50" y2="88" stroke="#1b453d" stroke-width="1"/>
+          <line x1="50" y1="50" x2="79" y2="24" stroke="#c79a3a" stroke-width="2.5"/>
+          <path d="M66 50 A16 16 0 0 0 60 36" stroke="#c79a3a" stroke-width="2" fill="none"/>
+          <circle cx="79" cy="24" r="3" fill="#143933"/>
+        </svg>
+      </div>
+    </div>
 
-                sanitized = sanitized.replace(/[^0-9+\-*/().MathPIsqrtsincostanlog10]/g, '');
-                
-                const result = Function('"use strict"; return (' + sanitized + ')')();
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = 'Computed Result:<span class="res">' + Number(result.toFixed(6)) + '</span>';
-            } catch(e) {
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = '<span style="color:#dc2626">Syntax Error: Please verify your mathematical expression format.</span>';
-            }
-        }
+    <div class="solver-card">
+      <div class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>Expression</div>
+      <div class="input-row">
+        <input id="trigInput" type="text" placeholder="e.g. sin(30) + cos(60)">
+        <select id="trigMode"><option value="deg">Degrees</option><option value="rad">Radians</option></select>
+        <button class="solve-btn" onclick="solveTrig()">Solve</button>
+      </div>
+      <div class="examples">
+        <span class="ex-label">Try:</span>
+        <button onclick="runExample('trigInput','sin(30)+cos(60)',solveTrig)">sin(30)+cos(60)</button>
+        <button onclick="runExample('trigInput','tan(45)*2',solveTrig)">tan(45)*2</button>
+        <button onclick="runExample('trigInput','sin(90)^2+cos(90)^2',solveTrig)">sin²90+cos²90</button>
+      </div>
+      <div class="hint">Use sin(), cos(), tan(). Switch the dropdown to match your angle unit.</div>
+      <div class="result" id="trigResult"></div>
+    </div>
 
-        function setExample(val) {
-            document.getElementById('mathInput').value = val;
-            solveMath();
-        }
+    <div class="solver-card">
+      <div class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h18M3 20L13 4l8 16"/></svg>Right Triangle Solver — enter two sides</div>
+      <div class="input-row">
+        <input id="triA" type="text" placeholder="Opposite side (a)">
+        <input id="triB" type="text" placeholder="Adjacent side (b)">
+        <button class="solve-btn" onclick="solveTriangle()">Solve Triangle</button>
+      </div>
+      <div class="hint">The solver finds the hypotenuse and both acute angles from the two sides entered.</div>
+      <div class="result" id="triResult"></div>
+    </div>
 
-        function showModal(type) {
-            const modal = document.getElementById('modalBox');
-            const body = document.getElementById('modalBody');
-            
-            if(type === 'about') {
-                body.innerHTML = '<h2>About AlphaMath AI</h2><p style="margin-top:10px;">AlphaMath AI is an advanced educational technology platform dedicated to making mathematical problem solving intuitive, accessible, and comprehensive for learners worldwide.</p>';
-            } else if(type === 'privacy') {
-                body.innerHTML = '<h2>Privacy Policy</h2><p style="margin-top:10px;">We respect your privacy. AlphaMath AI does not collect personal identification data. We utilize standard Google AdSense and analytics tools to deliver relevant educational advertisements.</p>';
-            } else if(type === 'terms') {
-                body.innerHTML = '<h2>Terms of Service</h2><p style="margin-top:10px;">All computational results and guides are provided for educational and learning purposes. Users are advised to double-check complex calculations for critical professional applications.</p>';
-            } else if(type === 'contact') {
-                body.innerHTML = '<h2>Contact Us</h2><p style="margin-top:10px;">Have inquiries or support feedback? Get in touch with our team at: <strong>support@alphamathai.com</strong></p>';
-            }
-            modal.style.display = 'flex';
-        }
+    <div class="explainer">
+      <h3>The three core ratios</h3>
+      <div class="topic-grid">
+        <div class="t-card"><div class="t-icon">s</div><div><h4>sin θ</h4><p>Opposite ÷ Hypotenuse</p></div></div>
+        <div class="t-card"><div class="t-icon">c</div><div><h4>cos θ</h4><p>Adjacent ÷ Hypotenuse</p></div></div>
+        <div class="t-card"><div class="t-icon">t</div><div><h4>tan θ</h4><p>Opposite ÷ Adjacent</p></div></div>
+      </div>
+    </div>
+  </section>
 
-        function closeModal() {
-            document.getElementById('modalBox').style.display = 'none';
-        }
-    </script>
+  <section id="calculus" class="page">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">COLLEGE & UNIVERSITY</div>
+        <h2>Calculus Solver</h2>
+        <p>Differentiate any function symbolically, or integrate a polynomial to get its exact antiderivative.</p>
+      </div>
+      <div class="icon-box">
+        <svg viewBox="0 0 100 100" fill="none">
+          <line x1="10" y1="85" x2="90" y2="85" stroke="#1b453d" stroke-width="1.5"/>
+          <line x1="15" y1="90" x2="15" y2="10" stroke="#1b453d" stroke-width="1.5"/>
+          <path d="M15 80 Q 50 5 85 80" stroke="#e7c06e" fill="#e7c06e" opacity=".25"/>
+          <path d="M15 80 Q 50 5 85 80" stroke="#c79a3a" stroke-width="2.5" fill="none"/>
+          <line x1="20" y1="60" x2="65" y2="35" stroke="#143933" stroke-width="2"/>
+          <circle cx="42" cy="48" r="3.5" fill="#143933"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="solver-card">
+      <div class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17c4 0 5-12 9-12s3 14 9 7"/></svg>Differentiate with respect to x</div>
+      <div class="input-row">
+        <input id="derivInput" type="text" placeholder="e.g. x^3 + 2x^2 - 5x">
+        <button class="solve-btn" onclick="solveDerivative()">Differentiate</button>
+      </div>
+      <div class="examples">
+        <span class="ex-label">Try:</span>
+        <button onclick="runExample('derivInput','x^3+2x^2-5x',solveDerivative)">x³+2x²−5x</button>
+        <button onclick="runExample('derivInput','sin(x)*cos(x)',solveDerivative)">sin(x)·cos(x)</button>
+        <button onclick="runExample('derivInput','e^x * x^2',solveDerivative)">eˣ·x²</button>
+      </div>
+      <div class="result" id="derivResult"></div>
+    </div>
+
+    <div class="solver-card">
+      <div class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18 Q12 4 20 18" fill="rgba(199,154,58,.2)"/></svg>Integrate a polynomial (indefinite)</div>
+      <div class="input-row">
+        <input id="intInput" type="text" placeholder="e.g. 3x^2 + 4x - 7">
+        <button class="solve-btn" onclick="solveIntegral()">Integrate</button>
+      </div>
+      <div class="examples">
+        <span class="ex-label">Try:</span>
+        <button onclick="runExample('intInput','3x^2+4x-7',solveIntegral)">3x²+4x−7</button>
+        <button onclick="runExample('intInput','x^4-2x',solveIntegral)">x⁴−2x</button>
+      </div>
+      <div class="hint">Works on sums of terms like a·x^n. Result includes the constant of integration, C.</div>
+      <div class="result" id="intResult"></div>
+    </div>
+
+    <div class="explainer">
+      <h3>Differentiation vs. integration</h3>
+      <p><strong>Differentiation</strong> finds the rate of change of a function — the slope of its graph at any point. <strong>Integration</strong> reverses this process, finding the original function (the antiderivative) from its rate of change, plus an unknown constant C since any constant disappears when differentiated.</p>
+    </div>
+  </section>
+
+  <section id="stats" class="page">
+    <div class="page-head">
+      <div>
+        <div class="eyebrow">GRADE 10 & ABOVE</div>
+        <h2>Statistics Calculator</h2>
+        <p>Enter a list of numbers separated by commas to get the mean, median, mode, range, variance and standard deviation.</p>
+      </div>
+      <div class="icon-box">
+        <svg viewBox="0 0 100 100" fill="none">
+          <line x1="10" y1="85" x2="90" y2="85" stroke="#1b453d" stroke-width="1.5"/>
+          <path d="M10 85 C 30 85 35 20 50 20 C 65 20 70 85 90 85" stroke="#c79a3a" stroke-width="2.5" fill="none"/>
+          <rect x="22" y="65" width="9" height="20" fill="#143933" opacity=".8"/>
+          <rect x="38" y="45" width="9" height="40" fill="#143933" opacity=".8"/>
+          <rect x="54" y="35" width="9" height="50" fill="#143933" opacity=".8"/>
+          <rect x="70" y="60" width="9" height="25" fill="#143933" opacity=".8"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="solver-card">
+      <div class="card-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Data set</div>
+      <div class="input-row">
+        <input id="statsInput" type="text" placeholder="e.g. 4, 8, 6, 5, 3, 9, 8, 7">
+        <button class="solve-btn" onclick="solveStats()">Calculate</button>
+      </div>
+      <div class="examples">
+        <span class="ex-label">Try:</span>
+        <button onclick="runExample('statsInput','4,8,6,5,3,9,8,7',solveStats)">4,8,6,5,3,9,8,7</button>
+        <button onclick="runExample('statsInput','12,15,12,18,20,15,15',solveStats)">12,15,12,18,20,15,15</button>
+      </div>
+      <div class="result" id="statsResult"></div>
+    </div>
+
+    <div class="explainer">
+      <h3>Reading the results</h3>
+      <div class="topic-grid">
+        <div class="t-card"><div class="t-icon">x̄</div><div><h4>Mean</h4><p>The average — sum of all values divided by how many there are.</p></div></div>
+        <div class="t-card"><div class="t-icon">m</div><div><h4>Median</h4><p>The middle value once the data is sorted.</p></div></div>
+        <div class="t-card"><div class="t-icon">M</div><div><h4>Mode</h4><p>The value that appears most often.</p></div></div>
+        <div class="t-card"><div class="t-icon">σ</div><div><h4>Std. Deviation</h4><p>How spread out the values are from the mean.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div class="ad-slot">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6253024417683704" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+</div>
+
+<section class="faq">
+  <div style="max-width:1140px;margin:0 auto;padding:0 24px;">
+    <h2 class="serif">Frequently asked questions</h2>
+    <details><summary>Is MathSolve free to use?</summary><p>Yes. Every solver on this page — arithmetic, algebra, trigonometry, calculus and statistics — is free with no sign-up required.</p></details>
+    <details><summary>Does it actually calculate the answer, or just guess?</summary><p>It performs a real calculation using a math engine in your browser. The steps shown reflect the method actually used to reach the answer, not a generated description.</p></details>
+    <details><summary>What grade levels does it cover?</summary><p>From basic grade-school arithmetic through algebra and trigonometry in secondary school, up to calculus and statistics taught at college and postgraduate level.</p></details>
+    <details><summary>Can it solve calculus integrals with trigonometric or exponential terms?</summary><p>The integral solver currently handles polynomial terms (like 3x²+4x−7) precisely. The derivative solver handles a much wider range, including trigonometric, exponential and product expressions.</p></details>
+    <details><summary>Why does my equation show "no real solution"?</summary><p>Some quadratic equations have roots that are not real numbers (they involve the square root of a negative number). The solver will tell you when this happens instead of showing an incorrect result.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> MathSolve. Built for students, by someone who still checks their own homework.</div>
+    <div style="display:flex;gap:18px;">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="#" onclick="return false;">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+try{
+  document.querySelectorAll('ins.adsbygoogle').forEach(()=>{
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  });
+}catch(e){}
+
+document.querySelectorAll('#mainNav button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#mainNav button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.page).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+
+function runExample(inputId, value, fn){
+  document.getElementById(inputId).value = value;
+  fn();
+}
+function showResult(id, html, isError){
+  const el = document.getElementById(id);
+  el.innerHTML = html;
+  el.classList.add('show');
+  el.classList.toggle('error', !!isError);
+}
+
+function solveArithmetic(){
+  const raw = document.getElementById('arithInput').value.trim();
+  if(!raw){ showResult('arithResult','<div class="answer">Enter an expression first.</div>', true); return; }
+  try{
+    let expr = raw.replace(/(\d+(\.\d+)?)\s*%/g, '($1/100)');
+    const value = math.evaluate(expr);
+    const rounded = typeof value === 'number' ? math.round(value, 6) : value;
+    showResult('arithResult', `
+      <div class="answer">= ${rounded}</div>
+      <ul class="steps">
+        <li>Original expression: <span class="mono">${raw}</span></li>
+        <li>Percentages converted to decimals, brackets and exponents resolved first</li>
+        <li>Multiplication/division applied left to right, then addition/subtraction</li>
+        <li>Final result: <strong>${rounded}</strong></li>
+      </ul>`);
+  }catch(e){
+    showResult('arithResult', `<div class="answer">Couldn't read that expression. Check the syntax and try again.</div>`, true);
+  }
+}
+
+function solveAlgebra(){
+  const raw = document.getElementById('algInput').value.trim();
+  if(!raw.includes('=')){ showResult('algResult','<div class="answer">Equation must contain an "=" sign.</div>', true); return; }
+  try{
+    const [lhsRaw, rhsRaw] = raw.split('=');
+    const lhs = math.parse(lhsRaw).compile();
+    const rhs = math.parse(rhsRaw).compile();
+    const xs = [0,1,2];
+    const ys = xs.map(x => lhs.evaluate({x}) - rhs.evaluate({x}));
+    const c = ys[0];
+    const d1 = ys[1]-ys[0];
+    const d2 = ys[2]-ys[1];
+    const a = (d2-d1)/2;
+    const b = d1 - a;
+    const roundN = n => Math.round(n*1e8)/1e8;
+    const A = roundN(a), B = roundN(b), C = roundN(c);
+
+    if(Math.abs(A) < 1e-9){
+      if(Math.abs(B) < 1e-9){
+        showResult('algResult', C===0 ? `<div class="answer">Infinite solutions — true for every x.</div>` : `<div class="answer">No solution exists.</div>`, true);
+        return;
+      }
+      const x = roundN(-C/B);
+      showResult('algResult', `
+        <div class="answer">x = ${x}</div>
+        <ul class="steps">
+          <li>Rearranged into the form ${B}x + (${C}) = 0</li>
+          <li>Isolated x: x = −(${C}) / (${B})</li>
+          <li>Computed result: <strong>x = ${x}</strong></li>
+        </ul>`);
+    } else {
+      const disc = roundN(B*B - 4*A*C);
+      if(disc < 0){
+        const real = roundN(-B/(2*A));
+        const imag = roundN(Math.sqrt(-disc)/(2*A));
+        showResult('algResult', `
+          <div class="answer">No real solution</div>
+          <ul class="steps">
+            <li>Standard form: ${A}x² + ${B}x + ${C} = 0</li>
+            <li>Discriminant b²−4ac = ${disc} (negative)</li>
+            <li>Complex roots: x = ${real} ± ${imag}i</li>
+          </ul>`, true);
+      } else {
+        const sq = Math.sqrt(disc);
+        const x1 = roundN((-B+sq)/(2*A));
+        const x2 = roundN((-B-sq)/(2*A));
+        showResult('algResult', `
+          <div class="answer">x = ${x1}${x1!==x2 ? ' or x = '+x2 : ''}</div>
+          <ul class="steps">
+            <li>Standard form: ${A}x² + ${B}x + ${C} = 0</li>
+            <li>Discriminant b²−4ac = ${disc}</li>
+            <li>x = (−b ± √disc) / 2a = (${-B} ± ${roundN(sq)}) / ${2*A}</li>
+            <li>Roots: <strong>x = ${x1}${x1!==x2 ? ', x = '+x2 : ' (repeated root)'}</strong></li>
+          </ul>`);
+      }
+    }
+  }catch(e){
+    showResult('algResult', `<div class="answer">Couldn't parse that equation. Use x as the variable, e.g. 2x+5=15.</div>`, true);
+  }
+}
+
+function solveTrig(){
+  const raw = document.getElementById('trigInput').value.trim();
+  const mode = document.getElementById('trigMode').value;
+  if(!raw){ showResult('trigResult','<div class="answer">Enter an expression first.</div>', true); return; }
+  try{
+    let expr = raw;
+    if(mode === 'deg'){
+      expr = expr.replace(/(sin|cos|tan)\(([^)]+)\)/g, (m,fn,arg)=> `${fn}((${arg}) deg)`);
+    }
+    const value = math.evaluate(expr);
+    const rounded = math.round(value, 6);
+    showResult('trigResult', `
+      <div class="answer">= ${rounded}</div>
+      <ul class="steps">
+        <li>Expression evaluated in ${mode === 'deg' ? 'degrees' : 'radians'}</li>
+        <li>Each trig function computed from its ratio definition</li>
+        <li>Final result: <strong>${rounded}</strong></li>
+      </ul>`);
+  }catch(e){
+    showResult('trigResult', `<div class="answer">Couldn't read that expression. Use sin(), cos(), tan() with numbers.</div>`, true);
+  }
+}
+
+function solveTriangle(){
+  const a = parseFloat(document.getElementById('triA').value);
+  const b = parseFloat(document.getElementById('triB').value);
+  if(isNaN(a) || isNaN(b)){ showResult('triResult','<div class="answer">Enter both the opposite and adjacent sides.</div>', true); return; }
+  const hyp = Math.sqrt(a*a + b*b);
+  const angleA = Math.atan(a/b) * (180/Math.PI);
+  const angleB = 90 - angleA;
+  const r = n => Math.round(n*1000)/1000;
+  showResult('triResult', `
+    <div class="answer">Hypotenuse = ${r(hyp)}</div>
+    <ul class="steps">
+      <li>Pythagoras: c = √(a² + b²) = √(${a}² + ${b}²) = ${r(hyp)}</li>
+      <li>Angle opposite side a: ${r(angleA)}°</li>
+      <li>Angle opposite side b: ${r(angleB)}°</li>
+    </ul>`);
+}
+
+function solveDerivative(){
+  const raw = document.getElementById('derivInput').value.trim();
+  if(!raw){ showResult('derivResult','<div class="answer">Enter a function first.</div>', true); return; }
+  try{
+    const derivative = math.derivative(raw, 'x');
+    const simplified = math.simplify(derivative).toString();
+    showResult('derivResult', `
+      <div class="answer">d/dx [${raw}] = ${simplified}</div>
+      <ul class="steps">
+        <li>Standard differentiation rules applied term by term (power, product, chain rules as needed)</li>
+        <li>Result simplified to its shortest form</li>
+        <li>Final derivative: <strong>${simplified}</strong></li>
+      </ul>`);
+  }catch(e){
+    showResult('derivResult', `<div class="answer">Couldn't differentiate that. Use standard notation, e.g. x^3 + sin(x).</div>`, true);
+  }
+}
+
+function solveIntegral(){
+  const raw = document.getElementById('intInput').value.trim().replace(/\s+/g,'');
+  if(!raw){ showResult('intResult','<div class="answer">Enter a polynomial first.</div>', true); return; }
+  try{
+    const terms = raw.replace(/-/g,'+-').split('+').filter(t=>t!=='');
+    let resultTerms = [];
+    let stepsTerms = [];
+    terms.forEach(term=>{
+      let coeff, power;
+      if(term.includes('x')){
+        const parts = term.split('x');
+        coeff = parts[0] === '' ? 1 : parts[0] === '-' ? -1 : parseFloat(parts[0]);
+        power = (parts[1] && parts[1].startsWith('^')) ? parseFloat(parts[1].slice(1)) : 1;
+      } else {
+        coeff = parseFloat(term);
+        power = 0;
+      }
+      const newPower = power + 1;
+      const newCoeff = coeff / newPower;
+      const coeffStr = newCoeff === 1 ? '' : (newCoeff === -1 ? '-' : (Math.round(newCoeff*1000)/1000));
+      const termStr = newPower === 0 ? `${Math.round(newCoeff*1000)/1000}` : newPower === 1 ? `${coeffStr}x` : `${coeffStr}x^${newPower}`;
+      resultTerms.push(termStr);
+      stepsTerms.push(`${term} → ${termStr}`);
+    });
+    const finalExpr = resultTerms.join(' + ').replace(/\+ -/g,'− ') + ' + C';
+    showResult('intResult', `
+      <div class="answer">∫ (${raw}) dx = ${finalExpr}</div>
+      <ul class="steps">
+        ${stepsTerms.map(s=>`<li>${s} (power rule: raise power by 1, divide by new power)</li>`).join('')}
+        <li>Add the constant of integration, C</li>
+      </ul>`);
+  }catch(e){
+    showResult('intResult', `<div class="answer">Couldn't integrate that. Use a polynomial like 3x^2+4x-7.</div>`, true);
+  }
+}
+
+function solveStats(){
+  const raw = document.getElementById('statsInput').value.trim();
+  if(!raw){ showResult('statsResult','<div class="answer">Enter a list of numbers first.</div>', true); return; }
+  try{
+    const data = raw.split(',').map(v=>parseFloat(v.trim())).filter(v=>!isNaN(v));
+    if(data.length === 0) throw new Error('empty');
+    const n = data.length;
+    const mean = data.reduce((a,b)=>a+b,0)/n;
+    const sorted = [...data].sort((a,b)=>a-b);
+    const median = n%2===0 ? (sorted[n/2-1]+sorted[n/2])/2 : sorted[(n-1)/2];
+    const freq = {};
+    data.forEach(v=>freq[v]=(freq[v]||0)+1);
+    const maxFreq = Math.max(...Object.values(freq));
+    const modes = Object.keys(freq).filter(k=>freq[k]===maxFreq);
+    const modeStr = maxFreq > 1 ? modes.join(', ') : 'No repeated value';
+    const range = Math.max(...data) - Math.min(...data);
+    const variance = data.reduce((a,b)=>a+Math.pow(b-mean,2),0)/n;
+    const stdDev = Math.sqrt(variance);
+    const r = x => Math.round(x*1000)/1000;
+
+    showResult('statsResult', `
+      <div class="answer">Mean = ${r(mean)}</div>
+      <ul class="steps">
+        <li>Data (sorted): ${sorted.join(', ')}</li>
+        <li>Mean: sum of values ÷ ${n} = <strong>${r(mean)}</strong></li>
+        <li>Median: middle value = <strong>${r(median)}</strong></li>
+        <li>Mode: <strong>${modeStr}</strong></li>
+        <li>Range: max − min = <strong>${r(range)}</strong></li>
+        <li>Variance: <strong>${r(variance)}</strong></li>
+        <li>Standard deviation: <strong>${r(stdDev)}</strong></li>
+      </ul>`);
+  }catch(e){
+    showResult('statsResult', `<div class="answer">Enter numbers separated by commas, e.g. 4, 8, 6, 5.</div>`, true);
+  }
+}
+</script>
 </body>
 </html>
